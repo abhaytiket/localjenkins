@@ -8,6 +8,7 @@ pipeline {
     stages {
         stage('build') {
             steps {
+                sh 'bazel --version'
                 sh 'bazel build //src/app1/hello'
             }
         }
