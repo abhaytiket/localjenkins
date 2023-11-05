@@ -10,7 +10,7 @@ As I'm already using docker desktop for macOS and it has in built support for ku
 * Argo CD for continuous deployment
 * a local kubernetes cluster using docker desktop  
 
-## Argo CD Setup instructions
+## Argo CD setup instructions
 
 1. Enable kubernetes on docker desktop and wait for the cluster to be ready.
 2. Install `kubectl` using homebrew command
@@ -83,5 +83,15 @@ As I'm going to use `docker-desktop` hence I have used
 ```
 $ argocd cluster add docker-desktop
 ```
-The above command installs a ServiceAccount (argocd-manager), into the kube-system namespace of that kubectl context, and binds the service account to an admin-level ClusterRole. Argo CD uses this service account token to perform its management tasks (i.e. deploy/monitoring).
-12. 
+The above command installs a ServiceAccount (`argocd-manager`), into the kube-system namespace of that kubectl context, and binds the service account to an admin-level ClusterRole. Argo CD uses this service account token to perform its management tasks (i.e. deploy/monitoring).
+
+## Jenkins setup instructions
+For setting up Jenkins on k8s we will do the following:
+* Create a Namespace
+* Create a service account with k8s admin permissions
+* Create local persistent volume for persistent Jenkins data on Pod restarts
+* Create a deployment YAML and deploy it
+* Create a service YAML and deploy it
+
+Please just follow the instructions given in [link](https://www.jenkins.io/doc/book/installing/kubernetes/)
+
